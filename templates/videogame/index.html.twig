@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello VideogameController!{% endblock %}
+
+{% block body %}
+    {% for videogame in videogames %}
+        {{ videogame.title }}
+        {{ videogame.description }}
+        {{ videogame.releasedate|date('Y-m-d') }}
+        {{ videogame.editor }}
+
+        {% if is_granted("ROLE_ADMIN") %}
+            <a href="{{ path('videogame_edit', {'id': videogame.id}) }}">Edit</a>
+            <a href="{{ path('videogame_delete', {'id': videogame.id}) }}">Delete</a>
+        {% endif %}
+    <br>
+    {% endfor %}
+    <a href="{{ path('videogame') }}">List</a>
+{% endblock %}

@@ -6,5 +6,12 @@
     {% for editor in editors %}
         {{ editor.societyName }}
         {{ editor.nationality }}
+
+        {% if is_granted("ROLE_ADMIN") %}
+            <a href="{{ path('editor_edit', {'id': editor.id}) }}">Edit</a>
+            <a href="{{ path('editor_delete', {'id': editor.id}) }}">Delete</a>
+        {% endif %}
+    <br>
     {% endfor %}
+    <a href="{{ path('editor') }}">List</a>
 {% endblock %}
