@@ -27,7 +27,6 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="json")
      */
-    //Rôles admin, Rôles users
     private $roles = [];
 
     /**
@@ -47,7 +46,7 @@ class User implements UserInterface
     private $lastname;
 
     /**
-     * @ORM\Column(type="date", length=255)
+     * @ORM\Column(type="date", length=255, nullable=true)
      */
     private $birthdate;
 

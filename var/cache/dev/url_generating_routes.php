@@ -29,6 +29,7 @@ return [
     'user_delete' => [['id'], ['_controller' => 'App\\Controller\\UserController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/user/delete']], [], []],
     'videogame' => [[], ['_controller' => 'App\\Controller\\VideoGameController::index'], [], [['text', '/videogame/']], [], []],
     'videogame_add' => [[], ['_controller' => 'App\\Controller\\VideoGameController::add'], [], [['text', '/videogame/new']], [], []],
+    'videogame_see' => [['id'], ['_controller' => 'App\\Controller\\VideoGameController::see'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/videogame/see']], [], []],
     'videogame_edit' => [['id'], ['_controller' => 'App\\Controller\\VideoGameController::edit'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/videogame/edit']], [], []],
     'videogame_delete' => [['id'], ['_controller' => 'App\\Controller\\VideoGameController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/videogame/delete']], [], []],
 ];

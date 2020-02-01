@@ -2,7 +2,12 @@
 
 {% block title %}Hello EditorController!{% endblock %}
 
+{% block stylesheets %}
+
+{% endblock %}
+
 {% block body %}
+        
     {% for editor in editors %}
         {{ editor.societyName }}
         {{ editor.nationality }}
@@ -13,5 +18,5 @@
         {% endif %}
     <br>
     {% endfor %}
-    <a href="{{ path('editor') }}">List</a>
+    {# <a href="{{ path('editor') }}">List</a> #}
 {% endblock %}

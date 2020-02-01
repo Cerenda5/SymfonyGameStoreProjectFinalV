@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}video game details{% endblock %}
+
+{% block body %}
+    <div class="container">
+           <p class="m-0">{{ videogame.title }}</p>
+           <p class="m-0">{{ videogame.description }}</p>
+            <p class="m-0">{{ videogame.releasedate|date('Y-m-d') }}</p>
+            <p class="m-0">{{ videogame.editor.societyname }}</p>
+            <p class="m-0">{{ videogame.support }}</p>
+
+            <a href=""> </a>
+
+
+            {% if is_granted("ROLE_ADMIN") %}
+                <a href="{{ path('videogame_edit', {'id': videogame.id}) }}">Edit</a>
+                <a href="{{ path('videogame_delete', {'id': videogame.id}) }}">Delete</a>
+            {% endif %}
+        </div>
+    <br>
+    {# <a href="{{ path('videogame') }}">List</a> #}
+{% endblock %}

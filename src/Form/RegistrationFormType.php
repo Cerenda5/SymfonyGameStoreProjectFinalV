@@ -24,6 +24,7 @@ class RegistrationFormType extends AbstractType
             ->add('email', EmailType::class)
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
+            // ->add('birthdate')
             ->add('birthdate', DateType::class, [
                 'years' => range(date ('Y'), date('Y') - 75)])
             ->add('agreeTerms', CheckboxType::class, [

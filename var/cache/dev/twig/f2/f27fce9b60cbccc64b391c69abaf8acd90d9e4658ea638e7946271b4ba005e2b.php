@@ -94,11 +94,8 @@ class __TwigTemplate_0236561cb189aa2dc262bc6a896ec572f9055c621f9ae4ec81a682b341c
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "email", [], "any", false, false, false, 7), "html", null, true);
             echo "
         ";
-            // line 8
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "roles", [], "any", false, false, false, 8), "html", null, true);
-            echo "
-        ";
             // line 9
+            echo "        ";
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
                 // line 10
                 echo "            ";
@@ -144,10 +141,7 @@ class __TwigTemplate_0236561cb189aa2dc262bc6a896ec572f9055c621f9ae4ec81a682b341c
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 23
-        echo "    <a href=\"";
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user");
-        echo "\">List</a>
-";
+        echo "    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -168,7 +162,7 @@ class __TwigTemplate_0236561cb189aa2dc262bc6a896ec572f9055c621f9ae4ec81a682b341c
 
     public function getDebugInfo()
     {
-        return array (  147 => 23,  140 => 21,  135 => 19,  130 => 18,  128 => 17,  123 => 15,  119 => 14,  115 => 13,  110 => 12,  104 => 10,  102 => 9,  98 => 8,  93 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  144 => 23,  137 => 21,  132 => 19,  127 => 18,  125 => 17,  120 => 15,  116 => 14,  112 => 13,  107 => 12,  101 => 10,  98 => 9,  93 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -180,7 +174,7 @@ class __TwigTemplate_0236561cb189aa2dc262bc6a896ec572f9055c621f9ae4ec81a682b341c
 {% block body %}
     {% for user in users %}
         {{ user.email }}
-        {{ user.roles }}
+        {# {{ user.roles }} #}
         {% if is_granted(\"ROLE_ADMIN\") %}
             {{ user.password }}
         {% endif %}
@@ -195,8 +189,8 @@ class __TwigTemplate_0236561cb189aa2dc262bc6a896ec572f9055c621f9ae4ec81a682b341c
         {% endif %}
     <br>
     {% endfor %}
-    <a href=\"{{ path('user') }}\">List</a>
+    {# <a href=\"{{ path('user') }}\">List</a> #}
 {% endblock %}
-", "user/index.html.twig", "C:\\wamp64\\www\\SymfonyGameStore1\\templates\\user\\index.html.twig");
+", "user/index.html.twig", "C:\\wamp64\\www\\ProjetPhp\\SymfonyGameStore1\\templates\\user\\index.html.twig");
     }
 }

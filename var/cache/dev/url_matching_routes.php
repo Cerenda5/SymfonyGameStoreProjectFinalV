@@ -50,8 +50,9 @@ return [
                     .'|delete/([^/]++)(*:270)'
                 .')'
                 .'|/videogame/(?'
-                    .'|edit/([^/]++)(*:306)'
-                    .'|delete/([^/]++)(*:329)'
+                    .'|see/([^/]++)(*:305)'
+                    .'|edit/([^/]++)(*:326)'
+                    .'|delete/([^/]++)(*:349)'
                 .')'
             .')/?$}sDu',
     ],
@@ -67,8 +68,9 @@ return [
         216 => [[['_route' => 'editor_delete', '_controller' => 'App\\Controller\\EditorController::delete'], ['id'], null, null, false, true, null]],
         247 => [[['_route' => 'user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], null, null, false, true, null]],
         270 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], null, null, false, true, null]],
-        306 => [[['_route' => 'videogame_edit', '_controller' => 'App\\Controller\\VideoGameController::edit'], ['id'], null, null, false, true, null]],
-        329 => [
+        305 => [[['_route' => 'videogame_see', '_controller' => 'App\\Controller\\VideoGameController::see'], ['id'], null, null, false, true, null]],
+        326 => [[['_route' => 'videogame_edit', '_controller' => 'App\\Controller\\VideoGameController::edit'], ['id'], null, null, false, true, null]],
+        349 => [
             [['_route' => 'videogame_delete', '_controller' => 'App\\Controller\\VideoGameController::delete'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

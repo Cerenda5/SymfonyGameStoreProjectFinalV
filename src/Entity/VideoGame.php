@@ -22,6 +22,11 @@ class VideoGame
     private $title;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $support;
+
+    /**
      * @ORM\Column(type="text")
      */
     private $description;
@@ -85,6 +90,18 @@ class VideoGame
     public function setEditor(?Editor $editor): self
     {
         $this->editor = $editor;
+
+        return $this;
+    }
+
+    public function getSupport(): ?string
+    {
+        return $this->support;
+    }
+
+    public function setSupport(string $support): self
+    {
+        $this->support = $support;
 
         return $this;
     }

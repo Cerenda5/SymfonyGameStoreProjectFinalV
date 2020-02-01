@@ -47,6 +47,18 @@ class VideoGameController extends AbstractController
     }
 
     /**
+     * @Route("/videogame/see/{id}", name="videogame_see")
+     * @ParamConverter("videogame", options={"id"="id"})
+     */
+    public function see(VideoGame $videogame)
+    {
+        return $this->render('videogame/details.html.twig', [
+            'videogame' => $videogame,
+        ]);
+    }
+
+
+    /**
      * @Route("/videogame/edit/{id}", name="videogame_edit")
      * @ParamConverter("videogame", options={"id"="id"})
      */

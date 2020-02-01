@@ -90,47 +90,57 @@ class __TwigTemplate_0fcbb8c1ef78d422f4c078418cf247cdd4f2db74e496e889ba97cf503df
         $context['_seq'] = twig_ensure_traversable((isset($context["videogames"]) || array_key_exists("videogames", $context) ? $context["videogames"] : (function () { throw new RuntimeError('Variable "videogames" does not exist.', 6, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["videogame"]) {
             // line 7
-            echo "        ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "title", [], "any", false, false, false, 7), "html", null, true);
-            echo "
-        ";
+            echo "        <div class=\"container\">
+            <p class=\"m-0\">";
             // line 8
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "description", [], "any", false, false, false, 8), "html", null, true);
-            echo "
-        ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "title", [], "any", false, false, false, 8), "html", null, true);
+            echo "</p>
+            <p class=\"m-0\">";
             // line 9
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "releasedate", [], "any", false, false, false, 9), "Y-m-d"), "html", null, true);
-            echo "
-        ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "description", [], "any", false, false, false, 9), "html", null, true);
+            echo "</p>
+            <p class=\"m-0\">";
             // line 10
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "editor", [], "any", false, false, false, 10), "html", null, true);
-            echo "
-
-        ";
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "releasedate", [], "any", false, false, false, 10), "Y-m-d"), "html", null, true);
+            echo "</p>
+            <p class=\"m-0\">";
+            // line 11
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["videogame"], "editor", [], "any", false, false, false, 11), "societyname", [], "any", false, false, false, 11), "html", null, true);
+            echo "</p>
+            <p class=\"m-0\">";
             // line 12
-            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                // line 13
-                echo "            <a href=\"";
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["videogame"], "id", [], "any", false, false, false, 13)]), "html", null, true);
-                echo "\">Edit</a>
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "support", [], "any", false, false, false, 12), "html", null, true);
+            echo "</p>
+
             <a href=\"";
-                // line 14
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["videogame"], "id", [], "any", false, false, false, 14)]), "html", null, true);
+            // line 14
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_see", ["id" => twig_get_attribute($this->env, $this->source, $context["videogame"], "id", [], "any", false, false, false, 14)]), "html", null, true);
+            echo "\" class=\"btn btn-primary\">Details</a>
+
+
+            ";
+            // line 17
+            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
+                // line 18
+                echo "                <a href=\"";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["videogame"], "id", [], "any", false, false, false, 18)]), "html", null, true);
+                echo "\">Edit</a>
+                <a href=\"";
+                // line 19
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["videogame"], "id", [], "any", false, false, false, 19)]), "html", null, true);
                 echo "\">Delete</a>
-        ";
+            ";
             }
-            // line 16
-            echo "    <br>
+            // line 21
+            echo "        </div>
+    <br>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['videogame'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 18
-        echo "    <a href=\"";
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame");
-        echo "\">List</a>
-";
+        // line 24
+        echo "    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -151,7 +161,7 @@ class __TwigTemplate_0fcbb8c1ef78d422f4c078418cf247cdd4f2db74e496e889ba97cf503df
 
     public function getDebugInfo()
     {
-        return array (  130 => 18,  123 => 16,  118 => 14,  113 => 13,  111 => 12,  106 => 10,  102 => 9,  98 => 8,  93 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  143 => 24,  135 => 21,  130 => 19,  125 => 18,  123 => 17,  117 => 14,  112 => 12,  108 => 11,  104 => 10,  100 => 9,  96 => 8,  93 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -162,19 +172,25 @@ class __TwigTemplate_0fcbb8c1ef78d422f4c078418cf247cdd4f2db74e496e889ba97cf503df
 
 {% block body %}
     {% for videogame in videogames %}
-        {{ videogame.title }}
-        {{ videogame.description }}
-        {{ videogame.releasedate|date('Y-m-d') }}
-        {{ videogame.editor }}
+        <div class=\"container\">
+            <p class=\"m-0\">{{ videogame.title }}</p>
+            <p class=\"m-0\">{{ videogame.description }}</p>
+            <p class=\"m-0\">{{ videogame.releasedate|date('Y-m-d') }}</p>
+            <p class=\"m-0\">{{ videogame.editor.societyname }}</p>
+            <p class=\"m-0\">{{ videogame.support }}</p>
 
-        {% if is_granted(\"ROLE_ADMIN\") %}
-            <a href=\"{{ path('videogame_edit', {'id': videogame.id}) }}\">Edit</a>
-            <a href=\"{{ path('videogame_delete', {'id': videogame.id}) }}\">Delete</a>
-        {% endif %}
+            <a href=\"{{ path('videogame_see', {'id': videogame.id}) }}\" class=\"btn btn-primary\">Details</a>
+
+
+            {% if is_granted(\"ROLE_ADMIN\") %}
+                <a href=\"{{ path('videogame_edit', {'id': videogame.id}) }}\">Edit</a>
+                <a href=\"{{ path('videogame_delete', {'id': videogame.id}) }}\">Delete</a>
+            {% endif %}
+        </div>
     <br>
     {% endfor %}
-    <a href=\"{{ path('videogame') }}\">List</a>
+    {# <a href=\"{{ path('videogame') }}\">List</a> #}
 {% endblock %}
-", "videogame/index.html.twig", "C:\\wamp64\\www\\SymfonyGameStore1\\templates\\videogame\\index.html.twig");
+", "videogame/index.html.twig", "C:\\wamp64\\www\\ProjetPhp\\SymfonyGameStore1\\templates\\videogame\\index.html.twig");
     }
 }

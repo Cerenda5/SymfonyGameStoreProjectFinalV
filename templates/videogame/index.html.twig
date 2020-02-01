@@ -4,16 +4,22 @@
 
 {% block body %}
     {% for videogame in videogames %}
-        {{ videogame.title }}
-        {{ videogame.description }}
-        {{ videogame.releasedate|date('Y-m-d') }}
-        {{ videogame.editor }}
+        <div class="container">
+            <p class="m-0">{{ videogame.title }}</p>
+            <p class="m-0">{{ videogame.description }}</p>
+            <p class="m-0">{{ videogame.releasedate|date('Y-m-d') }}</p>
+            <p class="m-0">{{ videogame.editor.societyname }}</p>
+            <p class="m-0">{{ videogame.support }}</p>
 
-        {% if is_granted("ROLE_ADMIN") %}
-            <a href="{{ path('videogame_edit', {'id': videogame.id}) }}">Edit</a>
-            <a href="{{ path('videogame_delete', {'id': videogame.id}) }}">Delete</a>
-        {% endif %}
+            <a href="{{ path('videogame_see', {'id': videogame.id}) }}" class="btn btn-primary">Details</a>
+
+
+            {% if is_granted("ROLE_ADMIN") %}
+                <a href="{{ path('videogame_edit', {'id': videogame.id}) }}">Edit</a>
+                <a href="{{ path('videogame_delete', {'id': videogame.id}) }}">Delete</a>
+            {% endif %}
+        </div>
     <br>
     {% endfor %}
-    <a href="{{ path('videogame') }}">List</a>
+    {# <a href="{{ path('videogame') }}">List</a> #}
 {% endblock %}
