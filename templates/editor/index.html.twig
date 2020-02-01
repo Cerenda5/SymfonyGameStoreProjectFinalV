@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EditorController!{% endblock %}
+
+{% block body %}
+    {% for editor in editors %}
+        {{ editor.societyName }}
+        {{ editor.nationality }}
+    {% endfor %}
+{% endblock %}

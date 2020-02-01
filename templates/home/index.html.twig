@@ -1,0 +1,22 @@
+
+    {% extends 'base.html.twig' %}
+
+    {% block title %}Game Store{% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="gantry-theme://css/whoops.css" /> 
+    {% endblock %}
+    {% block header %}
+        {% block navbar %}
+            <header>   
+                {{ 'Game Store'|title }} 
+            </header>
+        {% endblock %}
+    {% endblock %}
+    {% block body %}
+    {% for game in games %}
+    {{ game.title }}
+    {{ game.description }}
+    {{ game.releasedate|date('d-m-Y')}}
+    {{ game.editor.societyName }}
+    {% endfor %}
+    {% endblock %}
