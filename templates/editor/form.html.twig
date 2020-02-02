@@ -1,7 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EditorController!{% endblock %}
+{% block title %}Editor Form{% endblock %}
 
 {% block body %}
+    <h1>{% block pagetitle %}Editor form{% endblock %}</h1>
     {{form(form)}}
 {% endblock %}

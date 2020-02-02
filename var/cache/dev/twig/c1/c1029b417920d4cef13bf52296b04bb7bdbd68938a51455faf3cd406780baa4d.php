@@ -898,6 +898,6 @@ class __TwigTemplate_ee0a9abaf902a4dc8605fa22cc8095dbe12f32a57d41fe518473ff42f83
         </tbody>
     </table>
 {% endmacro %}
-", "@WebProfiler/Collector/translation.html.twig", "C:\\wamp64\\www\\SymfonyGameStore1\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\translation.html.twig");
+", "@WebProfiler/Collector/translation.html.twig", "C:\\wamp64\\www\\SymfonyGameStoreProjectFinalV\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\translation.html.twig");
     }
 }

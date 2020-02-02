@@ -81,6 +81,6 @@ class __TwigTemplate_115e2f9c0111a771ff468b6cd2c76c7b55f5e1d905d93ac1f80968335bb
     public function getSourceContext()
     {
         return new Source("{% block panel '' %}
-", "@WebProfiler/Profiler/ajax_layout.html.twig", "C:\\wamp64\\www\\SymfonyGameStore1\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\ajax_layout.html.twig");
+", "@WebProfiler/Profiler/ajax_layout.html.twig", "C:\\wamp64\\www\\SymfonyGameStoreProjectFinalV\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\ajax_layout.html.twig");
     }
 }

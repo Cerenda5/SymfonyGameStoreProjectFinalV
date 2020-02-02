@@ -1,25 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello VideogameController!{% endblock %}
+{% block title %}Video Games{% endblock %}
 
 {% block body %}
-    {% for videogame in videogames %}
-        <div class="container">
-            <p class="m-0">{{ videogame.title }}</p>
-            <p class="m-0">{{ videogame.description }}</p>
-            <p class="m-0">{{ videogame.releasedate|date('Y-m-d') }}</p>
-            <p class="m-0">{{ videogame.editor.societyname }}</p>
-            <p class="m-0">{{ videogame.support }}</p>
-
-            <a href="{{ path('videogame_see', {'id': videogame.id}) }}" class="btn btn-primary">Details</a>
-
-
-            {% if is_granted("ROLE_ADMIN") %}
-                <a href="{{ path('videogame_edit', {'id': videogame.id}) }}">Edit</a>
-                <a href="{{ path('videogame_delete', {'id': videogame.id}) }}">Delete</a>
-            {% endif %}
-        </div>
-    <br>
-    {% endfor %}
-    {# <a href="{{ path('videogame') }}">List</a> #}
+    <h1>{% block pagetitle %}Video Games list{% endblock %}</h1>
+    {% if is_granted("ROLE_USER") %}
+        <div id="div-button-add"><a class="btn btn-success" href="{{ path('videogame_add') }}">Add a game</a></div>
+    {% endif %}
+    <table id="table-index videogame">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Release date</th>
+            <th>Editor</th>
+        </tr>
+        {% for videogame in videogames %}
+        <tr>
+            <td><a href="{{ path('videogame_see', {'id': videogame.id}) }}">{{ videogame.title }}</a></td>
+            <td>{{ videogame.description }}</td>
+            <td>{{ videogame.releasedate|date('d-m-Y')}}</td>
+            <td>{{ videogame.editor.societyName }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

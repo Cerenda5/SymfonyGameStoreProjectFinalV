@@ -122,6 +122,6 @@ class __TwigTemplate_bb685b3170491bc3ab7546a713aecaaf5a5dfbb141d43a0e95b335f7177
         {% endfor %}
     </tbody>
 </table>
-", "@WebProfiler/Profiler/table.html.twig", "C:\\wamp64\\www\\SymfonyGameStore1\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\table.html.twig");
+", "@WebProfiler/Profiler/table.html.twig", "C:\\wamp64\\www\\SymfonyGameStoreProjectFinalV\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\table.html.twig");
     }
 }

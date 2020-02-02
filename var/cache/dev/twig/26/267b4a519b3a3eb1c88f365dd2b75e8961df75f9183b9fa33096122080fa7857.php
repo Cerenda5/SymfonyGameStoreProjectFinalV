@@ -65,7 +65,7 @@ class __TwigTemplate_f5f6437f124dd6aa87b6c786c6704466f5278700e167c45b7124320a331
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "video game details";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videogame"]) || array_key_exists("videogame", $context) ? $context["videogame"] : (function () { throw new RuntimeError('Variable "videogame" does not exist.', 3, $this->source); })()), "title", [], "any", false, false, false, 3), "html", null, true);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -85,47 +85,59 @@ class __TwigTemplate_f5f6437f124dd6aa87b6c786c6704466f5278700e167c45b7124320a331
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <div class=\"container\">
-           <p class=\"m-0\">";
-        // line 7
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videogame"]) || array_key_exists("videogame", $context) ? $context["videogame"] : (function () { throw new RuntimeError('Variable "videogame" does not exist.', 7, $this->source); })()), "title", [], "any", false, false, false, 7), "html", null, true);
-        echo "</p>
-           <p class=\"m-0\">";
-        // line 8
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videogame"]) || array_key_exists("videogame", $context) ? $context["videogame"] : (function () { throw new RuntimeError('Variable "videogame" does not exist.', 8, $this->source); })()), "description", [], "any", false, false, false, 8), "html", null, true);
-        echo "</p>
-            <p class=\"m-0\">";
-        // line 9
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videogame"]) || array_key_exists("videogame", $context) ? $context["videogame"] : (function () { throw new RuntimeError('Variable "videogame" does not exist.', 9, $this->source); })()), "releasedate", [], "any", false, false, false, 9), "Y-m-d"), "html", null, true);
-        echo "</p>
-            <p class=\"m-0\">";
-        // line 10
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["videogame"]) || array_key_exists("videogame", $context) ? $context["videogame"] : (function () { throw new RuntimeError('Variable "videogame" does not exist.', 10, $this->source); })()), "editor", [], "any", false, false, false, 10), "societyname", [], "any", false, false, false, 10), "html", null, true);
-        echo "</p>
-            <p class=\"m-0\">";
+        echo "    <h1>";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videogame"]) || array_key_exists("videogame", $context) ? $context["videogame"] : (function () { throw new RuntimeError('Variable "videogame" does not exist.', 6, $this->source); })()), "title", [], "any", false, false, false, 6), "html", null, true);
+        echo "</h1>
+
+    <div id=\"videogame-details-container\">
+        <div id=\"videogame-details-description\">
+            <p><b>Description :</b></p><br>
+            <p>";
         // line 11
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videogame"]) || array_key_exists("videogame", $context) ? $context["videogame"] : (function () { throw new RuntimeError('Variable "videogame" does not exist.', 11, $this->source); })()), "support", [], "any", false, false, false, 11), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videogame"]) || array_key_exists("videogame", $context) ? $context["videogame"] : (function () { throw new RuntimeError('Variable "videogame" does not exist.', 11, $this->source); })()), "description", [], "any", false, false, false, 11), "html", null, true);
         echo "</p>
-
-            <a href=\"\"> </a>
-
-
-            ";
+        </div>
+        <div id=\"videogame-details-infos\">
+            <div>
+                <p><b>Release date :</b></p>
+                <p>";
         // line 16
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videogame"]) || array_key_exists("videogame", $context) ? $context["videogame"] : (function () { throw new RuntimeError('Variable "videogame" does not exist.', 16, $this->source); })()), "releasedate", [], "any", false, false, false, 16), "Y-m-d"), "html", null, true);
+        echo "</p>
+            </div>
+            <div>
+            <p><b>Edited by :</b></p>
+                <p>";
+        // line 20
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["videogame"]) || array_key_exists("videogame", $context) ? $context["videogame"] : (function () { throw new RuntimeError('Variable "videogame" does not exist.', 20, $this->source); })()), "editor", [], "any", false, false, false, 20), "societyname", [], "any", false, false, false, 20), "html", null, true);
+        echo "</p>
+            </div>
+            <div>
+            <p><b>Support on :</b></p>
+                <p>";
+        // line 24
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["videogame"]) || array_key_exists("videogame", $context) ? $context["videogame"] : (function () { throw new RuntimeError('Variable "videogame" does not exist.', 24, $this->source); })()), "support", [], "any", false, false, false, 24), "html", null, true);
+        echo "</p>
+            </div>
+            ";
+        // line 26
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-            // line 17
-            echo "                <a href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["videogame"]) || array_key_exists("videogame", $context) ? $context["videogame"] : (function () { throw new RuntimeError('Variable "videogame" does not exist.', 17, $this->source); })()), "id", [], "any", false, false, false, 17)]), "html", null, true);
+            // line 27
+            echo "                <div id=\"videogame-details-admin\">
+                    <a href=\"";
+            // line 28
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["videogame"]) || array_key_exists("videogame", $context) ? $context["videogame"] : (function () { throw new RuntimeError('Variable "videogame" does not exist.', 28, $this->source); })()), "id", [], "any", false, false, false, 28)]), "html", null, true);
             echo "\">Edit</a>
-                <a href=\"";
-            // line 18
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["videogame"]) || array_key_exists("videogame", $context) ? $context["videogame"] : (function () { throw new RuntimeError('Variable "videogame" does not exist.', 18, $this->source); })()), "id", [], "any", false, false, false, 18)]), "html", null, true);
+                    <a href=\"";
+            // line 29
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["videogame"]) || array_key_exists("videogame", $context) ? $context["videogame"] : (function () { throw new RuntimeError('Variable "videogame" does not exist.', 29, $this->source); })()), "id", [], "any", false, false, false, 29)]), "html", null, true);
             echo "\">Delete</a>
+                </div>
             ";
         }
-        // line 20
+        // line 32
         echo "        </div>
-    <br>
+    </div>
     ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -147,34 +159,46 @@ class __TwigTemplate_f5f6437f124dd6aa87b6c786c6704466f5278700e167c45b7124320a331
 
     public function getDebugInfo()
     {
-        return array (  127 => 20,  122 => 18,  117 => 17,  115 => 16,  107 => 11,  103 => 10,  99 => 9,  95 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  139 => 32,  133 => 29,  129 => 28,  126 => 27,  124 => 26,  119 => 24,  112 => 20,  105 => 16,  97 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}video game details{% endblock %}
+{% block title %}{{ videogame.title }}{% endblock %}
 
 {% block body %}
-    <div class=\"container\">
-           <p class=\"m-0\">{{ videogame.title }}</p>
-           <p class=\"m-0\">{{ videogame.description }}</p>
-            <p class=\"m-0\">{{ videogame.releasedate|date('Y-m-d') }}</p>
-            <p class=\"m-0\">{{ videogame.editor.societyname }}</p>
-            <p class=\"m-0\">{{ videogame.support }}</p>
+    <h1>{{ videogame.title }}</h1>
 
-            <a href=\"\"> </a>
-
-
+    <div id=\"videogame-details-container\">
+        <div id=\"videogame-details-description\">
+            <p><b>Description :</b></p><br>
+            <p>{{ videogame.description }}</p>
+        </div>
+        <div id=\"videogame-details-infos\">
+            <div>
+                <p><b>Release date :</b></p>
+                <p>{{ videogame.releasedate|date('Y-m-d') }}</p>
+            </div>
+            <div>
+            <p><b>Edited by :</b></p>
+                <p>{{ videogame.editor.societyname }}</p>
+            </div>
+            <div>
+            <p><b>Support on :</b></p>
+                <p>{{ videogame.support }}</p>
+            </div>
             {% if is_granted(\"ROLE_ADMIN\") %}
-                <a href=\"{{ path('videogame_edit', {'id': videogame.id}) }}\">Edit</a>
-                <a href=\"{{ path('videogame_delete', {'id': videogame.id}) }}\">Delete</a>
+                <div id=\"videogame-details-admin\">
+                    <a href=\"{{ path('videogame_edit', {'id': videogame.id}) }}\">Edit</a>
+                    <a href=\"{{ path('videogame_delete', {'id': videogame.id}) }}\">Delete</a>
+                </div>
             {% endif %}
         </div>
-    <br>
+    </div>
     {# <a href=\"{{ path('videogame') }}\">List</a> #}
 {% endblock %}
-", "videogame/details.html.twig", "C:\\wamp64\\www\\ProjetPhp\\SymfonyGameStore1\\templates\\videogame\\details.html.twig");
+", "videogame/details.html.twig", "C:\\wamp64\\www\\SymfonyGameStoreProjectFinalV\\templates\\videogame\\details.html.twig");
     }
 }

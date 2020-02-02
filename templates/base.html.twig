@@ -4,30 +4,36 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/SymfonyGameStoreProjectFinalV/style.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>        
-  {% block stylesheets %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>        
+    {% block stylesheets %}
         {% endblock %}
     </head>
     <body>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                <a class="navbar-brand" href="#">WebSiteName</a>
+                <a class="navbar-brand" href="/SymfonyGameStoreProjectFinalV/">Game Store</a>
                 </div>
                 <ul class="nav navbar-nav">
                 {# <li class="active"><a href="#">Home</a></li> #}
-                <li><a href="{{ path('app_login') }}">Login</a></li>
-                <li><a href="{{ path('app_register') }}">Register</a></li>
-                <li><a href="{{ path('editor') }}">Edit</a></li>
-                <li><a href="{{ path('user') }}">User</a></li>
-                <li><a href="{{ path('videogame') }}">Video Game</a></li>
+                {% if is_granted("ROLE_USER") %}
+                    <li><a href="{{ path('app_login') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ path('app_login') }}">Login</a></li>
+                    <li><a href="{{ path('app_register') }}">Register</a></li>
+                {% endif %}
+                <li><a href="{{ path('editor') }}">Editors</a></li>
+                <li><a href="{{ path('user') }}">Users</a></li>
+                <li><a href="{{ path('videogame') }}">Video Games</a></li>
                 </ul>
             </div>
         </nav>
                     
         {% block body %}
+            <h1>{% block pagetitle %}Titreuh{% endblock %}</h1>
         {% endblock %}
 
 

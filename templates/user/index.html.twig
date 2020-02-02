@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Users{% endblock %}
 
 {% block body %}
+    <h1>{% block pagetitle %}Users list{% endblock %}</h1>
     {% for user in users %}
         {{ user.email }}
         {# {{ user.roles }} #}

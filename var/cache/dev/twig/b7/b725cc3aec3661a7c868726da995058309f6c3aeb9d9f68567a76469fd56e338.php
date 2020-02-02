@@ -30,6 +30,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
             'title' => [$this, 'block_title'],
             'stylesheets' => [$this, 'block_stylesheets'],
             'body' => [$this, 'block_body'],
+            'pagetitle' => [$this, 'block_pagetitle'],
             'javascripts' => [$this, 'block_javascripts'],
         ];
     }
@@ -53,56 +54,68 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
     <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\">
+    <link rel=\"stylesheet\" href=\"/SymfonyGameStoreProjectFinalV/style.css\">
 
-  <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>
-  <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>        
-  ";
-        // line 10
+    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>
+    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>        
+    ";
+        // line 11
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 12
+        // line 13
         echo "    </head>
     <body>
         <nav class=\"navbar navbar-inverse\">
             <div class=\"container-fluid\">
                 <div class=\"navbar-header\">
-                <a class=\"navbar-brand\" href=\"#\">WebSiteName</a>
+                <a class=\"navbar-brand\" href=\"/SymfonyGameStoreProjectFinalV/\">Game Store</a>
                 </div>
                 <ul class=\"nav navbar-nav\">
                 ";
-        // line 21
-        echo "                <li><a href=\"";
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
-        echo "\">Login</a></li>
-                <li><a href=\"";
         // line 22
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
-        echo "\">Register</a></li>
-                <li><a href=\"";
-        // line 23
+        echo "                ";
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
+            // line 23
+            echo "                    <li><a href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo "\">Logout</a></li>
+                ";
+        } else {
+            // line 25
+            echo "                    <li><a href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo "\">Login</a></li>
+                    <li><a href=\"";
+            // line 26
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
+            echo "\">Register</a></li>
+                ";
+        }
+        // line 28
+        echo "                <li><a href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("editor");
-        echo "\">Edit</a></li>
+        echo "\">Editors</a></li>
                 <li><a href=\"";
-        // line 24
+        // line 29
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user");
-        echo "\">User</a></li>
+        echo "\">Users</a></li>
                 <li><a href=\"";
-        // line 25
+        // line 30
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame");
-        echo "\">Video Game</a></li>
+        echo "\">Video Games</a></li>
                 </ul>
             </div>
         </nav>
                     
         ";
-        // line 30
+        // line 35
         $this->displayBlock('body', $context, $blocks);
-        // line 32
+        // line 38
         echo "
 
         ";
-        // line 34
+        // line 40
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 35
+        // line 41
         echo "    </body>
 </html>
 ";
@@ -133,7 +146,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     }
 
-    // line 10
+    // line 11
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -143,7 +156,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 11
+        // line 12
         echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -153,7 +166,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     }
 
-    // line 30
+    // line 35
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -163,8 +176,11 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 31
-        echo "        ";
+        // line 36
+        echo "            <h1>";
+        $this->displayBlock('pagetitle', $context, $blocks);
+        echo "</h1>
+        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -173,7 +189,25 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     }
 
-    // line 34
+    public function block_pagetitle($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "pagetitle"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "pagetitle"));
+
+        echo "Titreuh";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 40
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -203,7 +237,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
 
     public function getDebugInfo()
     {
-        return array (  177 => 34,  167 => 31,  157 => 30,  147 => 11,  137 => 10,  118 => 5,  106 => 35,  104 => 34,  100 => 32,  98 => 30,  90 => 25,  86 => 24,  82 => 23,  78 => 22,  73 => 21,  63 => 12,  61 => 10,  53 => 5,  47 => 1,);
+        return array (  211 => 40,  180 => 36,  170 => 35,  160 => 12,  150 => 11,  131 => 5,  119 => 41,  117 => 40,  113 => 38,  111 => 35,  103 => 30,  99 => 29,  94 => 28,  89 => 26,  84 => 25,  78 => 23,  75 => 22,  65 => 13,  63 => 11,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -214,36 +248,42 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
         <meta charset=\"UTF-8\">
         <title>{% block title %}Welcome!{% endblock %}</title>
     <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\">
+    <link rel=\"stylesheet\" href=\"/SymfonyGameStoreProjectFinalV/style.css\">
 
-  <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>
-  <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>        
-  {% block stylesheets %}
+    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>
+    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>        
+    {% block stylesheets %}
         {% endblock %}
     </head>
     <body>
         <nav class=\"navbar navbar-inverse\">
             <div class=\"container-fluid\">
                 <div class=\"navbar-header\">
-                <a class=\"navbar-brand\" href=\"#\">WebSiteName</a>
+                <a class=\"navbar-brand\" href=\"/SymfonyGameStoreProjectFinalV/\">Game Store</a>
                 </div>
                 <ul class=\"nav navbar-nav\">
                 {# <li class=\"active\"><a href=\"#\">Home</a></li> #}
-                <li><a href=\"{{ path('app_login') }}\">Login</a></li>
-                <li><a href=\"{{ path('app_register') }}\">Register</a></li>
-                <li><a href=\"{{ path('editor') }}\">Edit</a></li>
-                <li><a href=\"{{ path('user') }}\">User</a></li>
-                <li><a href=\"{{ path('videogame') }}\">Video Game</a></li>
+                {% if is_granted(\"ROLE_USER\") %}
+                    <li><a href=\"{{ path('app_login') }}\">Logout</a></li>
+                {% else %}
+                    <li><a href=\"{{ path('app_login') }}\">Login</a></li>
+                    <li><a href=\"{{ path('app_register') }}\">Register</a></li>
+                {% endif %}
+                <li><a href=\"{{ path('editor') }}\">Editors</a></li>
+                <li><a href=\"{{ path('user') }}\">Users</a></li>
+                <li><a href=\"{{ path('videogame') }}\">Video Games</a></li>
                 </ul>
             </div>
         </nav>
                     
         {% block body %}
+            <h1>{% block pagetitle %}Titreuh{% endblock %}</h1>
         {% endblock %}
 
 
         {% block javascripts %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "C:\\wamp64\\www\\ProjetPhp\\SymfonyGameStore1\\templates\\base.html.twig");
+", "base.html.twig", "C:\\wamp64\\www\\SymfonyGameStoreProjectFinalV\\templates\\base.html.twig");
     }
 }

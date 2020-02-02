@@ -27,6 +27,7 @@ class __TwigTemplate_0fcbb8c1ef78d422f4c078418cf247cdd4f2db74e496e889ba97cf503df
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
+            'pagetitle' => [$this, 'block_pagetitle'],
         ];
     }
 
@@ -65,7 +66,7 @@ class __TwigTemplate_0fcbb8c1ef78d422f4c078418cf247cdd4f2db74e496e889ba97cf503df
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Hello VideogameController!";
+        echo "Video Games";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -85,62 +86,79 @@ class __TwigTemplate_0fcbb8c1ef78d422f4c078418cf247cdd4f2db74e496e889ba97cf503df
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    ";
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["videogames"]) || array_key_exists("videogames", $context) ? $context["videogames"] : (function () { throw new RuntimeError('Variable "videogames" does not exist.', 6, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["videogame"]) {
-            // line 7
-            echo "        <div class=\"container\">
-            <p class=\"m-0\">";
-            // line 8
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "title", [], "any", false, false, false, 8), "html", null, true);
-            echo "</p>
-            <p class=\"m-0\">";
-            // line 9
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "description", [], "any", false, false, false, 9), "html", null, true);
-            echo "</p>
-            <p class=\"m-0\">";
-            // line 10
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "releasedate", [], "any", false, false, false, 10), "Y-m-d"), "html", null, true);
-            echo "</p>
-            <p class=\"m-0\">";
-            // line 11
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["videogame"], "editor", [], "any", false, false, false, 11), "societyname", [], "any", false, false, false, 11), "html", null, true);
-            echo "</p>
-            <p class=\"m-0\">";
-            // line 12
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "support", [], "any", false, false, false, 12), "html", null, true);
-            echo "</p>
-
-            <a href=\"";
-            // line 14
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_see", ["id" => twig_get_attribute($this->env, $this->source, $context["videogame"], "id", [], "any", false, false, false, 14)]), "html", null, true);
-            echo "\" class=\"btn btn-primary\">Details</a>
-
-
-            ";
-            // line 17
-            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                // line 18
-                echo "                <a href=\"";
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["videogame"], "id", [], "any", false, false, false, 18)]), "html", null, true);
-                echo "\">Edit</a>
-                <a href=\"";
-                // line 19
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["videogame"], "id", [], "any", false, false, false, 19)]), "html", null, true);
-                echo "\">Delete</a>
-            ";
-            }
-            // line 21
-            echo "        </div>
-    <br>
+        echo "    <h1>";
+        $this->displayBlock('pagetitle', $context, $blocks);
+        echo "</h1>
     ";
+        // line 7
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
+            // line 8
+            echo "        <div id=\"div-button-add\"><a class=\"btn btn-success\" href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_add");
+            echo "\">Add a game</a></div>
+    ";
+        }
+        // line 10
+        echo "    <table id=\"table-index\">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Release date</th>
+            <th>Editor</th>
+        </tr>
+        ";
+        // line 17
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["videogames"]) || array_key_exists("videogames", $context) ? $context["videogames"] : (function () { throw new RuntimeError('Variable "videogames" does not exist.', 17, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["videogame"]) {
+            // line 18
+            echo "        <tr>
+            <td><a href=\"";
+            // line 19
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_see", ["id" => twig_get_attribute($this->env, $this->source, $context["videogame"], "id", [], "any", false, false, false, 19)]), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "title", [], "any", false, false, false, 19), "html", null, true);
+            echo "</a></td>
+            <td>";
+            // line 20
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "description", [], "any", false, false, false, 20), "html", null, true);
+            echo "</td>
+            <td>";
+            // line 21
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "releasedate", [], "any", false, false, false, 21), "d-m-Y"), "html", null, true);
+            echo "</td>
+            <td>";
+            // line 22
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["videogame"], "editor", [], "any", false, false, false, 22), "societyName", [], "any", false, false, false, 22), "html", null, true);
+            echo "</td>
+        </tr>
+        ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['videogame'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 24
-        echo "    ";
+        // line 25
+        echo "    </table>
+";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 6
+    public function block_pagetitle($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "pagetitle"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "pagetitle"));
+
+        echo "Video Games list";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -161,36 +179,37 @@ class __TwigTemplate_0fcbb8c1ef78d422f4c078418cf247cdd4f2db74e496e889ba97cf503df
 
     public function getDebugInfo()
     {
-        return array (  143 => 24,  135 => 21,  130 => 19,  125 => 18,  123 => 17,  117 => 14,  112 => 12,  108 => 11,  104 => 10,  100 => 9,  96 => 8,  93 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  152 => 6,  141 => 25,  132 => 22,  128 => 21,  124 => 20,  118 => 19,  115 => 18,  111 => 17,  102 => 10,  96 => 8,  94 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Hello VideogameController!{% endblock %}
+{% block title %}Video Games{% endblock %}
 
 {% block body %}
-    {% for videogame in videogames %}
-        <div class=\"container\">
-            <p class=\"m-0\">{{ videogame.title }}</p>
-            <p class=\"m-0\">{{ videogame.description }}</p>
-            <p class=\"m-0\">{{ videogame.releasedate|date('Y-m-d') }}</p>
-            <p class=\"m-0\">{{ videogame.editor.societyname }}</p>
-            <p class=\"m-0\">{{ videogame.support }}</p>
-
-            <a href=\"{{ path('videogame_see', {'id': videogame.id}) }}\" class=\"btn btn-primary\">Details</a>
-
-
-            {% if is_granted(\"ROLE_ADMIN\") %}
-                <a href=\"{{ path('videogame_edit', {'id': videogame.id}) }}\">Edit</a>
-                <a href=\"{{ path('videogame_delete', {'id': videogame.id}) }}\">Delete</a>
-            {% endif %}
-        </div>
-    <br>
-    {% endfor %}
-    {# <a href=\"{{ path('videogame') }}\">List</a> #}
+    <h1>{% block pagetitle %}Video Games list{% endblock %}</h1>
+    {% if is_granted(\"ROLE_USER\") %}
+        <div id=\"div-button-add\"><a class=\"btn btn-success\" href=\"{{ path('videogame_add') }}\">Add a game</a></div>
+    {% endif %}
+    <table id=\"table-index\">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Release date</th>
+            <th>Editor</th>
+        </tr>
+        {% for videogame in videogames %}
+        <tr>
+            <td><a href=\"{{ path('videogame_see', {'id': videogame.id}) }}\">{{ videogame.title }}</a></td>
+            <td>{{ videogame.description }}</td>
+            <td>{{ videogame.releasedate|date('d-m-Y')}}</td>
+            <td>{{ videogame.editor.societyName }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
-", "videogame/index.html.twig", "C:\\wamp64\\www\\ProjetPhp\\SymfonyGameStore1\\templates\\videogame\\index.html.twig");
+", "videogame/index.html.twig", "C:\\wamp64\\www\\SymfonyGameStoreProjectFinalV\\templates\\videogame\\index.html.twig");
     }
 }

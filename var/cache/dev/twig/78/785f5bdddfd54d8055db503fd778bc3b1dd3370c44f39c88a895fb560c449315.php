@@ -204,6 +204,6 @@ class __TwigTemplate_087f89358ec22eaa4dc3ca37a54335d4c6f85691fb9707060e0cd35e237
     </button>
 </form>
 {% endblock %}
-", "security/login.html.twig", "C:\\wamp64\\www\\SymfonyGameStore1\\templates\\security\\login.html.twig");
+", "security/login.html.twig", "C:\\wamp64\\www\\SymfonyGameStoreProjectFinalV\\templates\\security\\login.html.twig");
     }
 }

@@ -30,6 +30,7 @@ class __TwigTemplate_cbaae3faf07ae18a46fdb727a117081fa7b5c1a0116dd40e068198589d8
             'header' => [$this, 'block_header'],
             'navbar' => [$this, 'block_navbar'],
             'body' => [$this, 'block_body'],
+            'pagetitle' => [$this, 'block_pagetitle'],
         ];
     }
 
@@ -158,33 +159,79 @@ class __TwigTemplate_cbaae3faf07ae18a46fdb727a117081fa7b5c1a0116dd40e068198589d8
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 16
-        echo "    ";
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["games"]) || array_key_exists("games", $context) ? $context["games"] : (function () { throw new RuntimeError('Variable "games" does not exist.', 16, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["game"]) {
-            // line 17
-            echo "    ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "title", [], "any", false, false, false, 17), "html", null, true);
-            echo "
-    ";
+        echo "        <h1>";
+        $this->displayBlock('pagetitle', $context, $blocks);
+        echo "</h1>
+        ";
+        // line 17
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
             // line 18
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "description", [], "any", false, false, false, 18), "html", null, true);
-            echo "
-    ";
-            // line 19
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "releasedate", [], "any", false, false, false, 19), "d-m-Y"), "html", null, true);
-            echo "
-    ";
-            // line 20
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["game"], "editor", [], "any", false, false, false, 20), "societyName", [], "any", false, false, false, 20), "html", null, true);
-            echo "
-    ";
+            echo "            <div id=\"div-button-add\"><a class=\"btn btn-success\" href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_add");
+            echo "\">Add a game</a></div>
+        ";
+        }
+        // line 20
+        echo "        <table id=\"table-index\">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Release date</th>
+                <th>Editor</th>
+            </tr>
+            ";
+        // line 27
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["games"]) || array_key_exists("games", $context) ? $context["games"] : (function () { throw new RuntimeError('Variable "games" does not exist.', 27, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["game"]) {
+            // line 28
+            echo "            <tr>
+                <td><a href=\"";
+            // line 29
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_see", ["id" => twig_get_attribute($this->env, $this->source, $context["game"], "id", [], "any", false, false, false, 29)]), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "title", [], "any", false, false, false, 29), "html", null, true);
+            echo "</a></td>
+                <td>";
+            // line 30
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "description", [], "any", false, false, false, 30), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 31
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["game"], "releasedate", [], "any", false, false, false, 31), "d-m-Y"), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 32
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["game"], "editor", [], "any", false, false, false, 32), "societyName", [], "any", false, false, false, 32), "html", null, true);
+            echo "</td>
+            </tr>
+            ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['game'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 22
-        echo "    ";
+        // line 35
+        echo "        </table>
+    ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 16
+    public function block_pagetitle($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "pagetitle"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "pagetitle"));
+
+        echo "Welcome to Game Store";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -205,7 +252,7 @@ class __TwigTemplate_cbaae3faf07ae18a46fdb727a117081fa7b5c1a0116dd40e068198589d8
 
     public function getDebugInfo()
     {
-        return array (  187 => 22,  179 => 20,  175 => 19,  171 => 18,  166 => 17,  161 => 16,  151 => 15,  138 => 11,  135 => 10,  125 => 9,  115 => 14,  112 => 9,  102 => 8,  91 => 6,  81 => 5,  62 => 4,  39 => 2,);
+        return array (  225 => 16,  214 => 35,  205 => 32,  201 => 31,  197 => 30,  191 => 29,  188 => 28,  184 => 27,  175 => 20,  169 => 18,  167 => 17,  162 => 16,  152 => 15,  139 => 11,  136 => 10,  126 => 9,  116 => 14,  113 => 9,  103 => 8,  92 => 6,  82 => 5,  63 => 4,  40 => 2,);
     }
 
     public function getSourceContext()
@@ -225,13 +272,27 @@ class __TwigTemplate_cbaae3faf07ae18a46fdb727a117081fa7b5c1a0116dd40e068198589d8
         {% endblock %}
     {% endblock %}
     {% block body %}
-    {% for game in games %}
-    {{ game.title }}
-    {{ game.description }}
-    {{ game.releasedate|date('d-m-Y')}}
-    {{ game.editor.societyName }}
-    {% endfor %}
+        <h1>{% block pagetitle %}Welcome to Game Store{% endblock %}</h1>
+        {% if is_granted(\"ROLE_USER\") %}
+            <div id=\"div-button-add\"><a class=\"btn btn-success\" href=\"{{ path('videogame_add') }}\">Add a game</a></div>
+        {% endif %}
+        <table id=\"table-index\">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Release date</th>
+                <th>Editor</th>
+            </tr>
+            {% for game in games %}
+            <tr>
+                <td><a href=\"{{ path('videogame_see', {'id': game.id}) }}\">{{ game.title }}</a></td>
+                <td>{{ game.description }}</td>
+                <td>{{ game.releasedate|date('d-m-Y')}}</td>
+                <td>{{ game.editor.societyName }}</td>
+            </tr>
+            {% endfor %}
+        </table>
     {% endblock %}
-", "home/index.html.twig", "C:\\wamp64\\www\\SymfonyGameStore1\\templates\\home\\index.html.twig");
+", "home/index.html.twig", "C:\\wamp64\\www\\SymfonyGameStoreProjectFinalV\\templates\\home\\index.html.twig");
     }
 }

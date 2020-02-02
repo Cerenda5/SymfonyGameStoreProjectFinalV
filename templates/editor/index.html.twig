@@ -1,22 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EditorController!{% endblock %}
+{% block title %}Editors{% endblock %}
 
 {% block stylesheets %}
 
 {% endblock %}
 
 {% block body %}
-        
-    {% for editor in editors %}
-        {{ editor.societyName }}
-        {{ editor.nationality }}
+    <h1>{% block pagetitle %}Editors list{% endblock %}</h1>
+    {% if is_granted("ROLE_USER") %}
+        <div id="div-button-add"><a class="btn btn-success" href="{{ path('editor_add') }}">Add an editor</a></div>
+    {% endif %}
+    <table id="table-index editor">
+        <tr>
+            <th>Societyn Name</th>
+            <th>Nationality</th>
+            <th>Release date</th>
+            <th>Editor</th>
+        </tr>
+        {% for editor in editors %}
+            <td>{{ editor.societyName }}</td>
+            <td>{{ editor.nationality }}</td>
 
-        {% if is_granted("ROLE_ADMIN") %}
-            <a href="{{ path('editor_edit', {'id': editor.id}) }}">Edit</a>
-            <a href="{{ path('editor_delete', {'id': editor.id}) }}">Delete</a>
-        {% endif %}
-    <br>
-    {% endfor %}
+            {% if is_granted("ROLE_ADMIN") %}
+                <a href="{{ path('editor_edit', {'id': editor.id}) }}">Edit</a>
+                <a href="{{ path('editor_delete', {'id': editor.id}) }}">Delete</a>
+            {% endif %}
+        {% endfor %}
+    </table>
     {# <a href="{{ path('editor') }}">List</a> #}
 {% endblock %}

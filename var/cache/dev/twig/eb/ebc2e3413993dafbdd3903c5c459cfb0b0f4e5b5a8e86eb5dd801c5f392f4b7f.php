@@ -170,6 +170,6 @@ class __TwigTemplate_0e965a97628e18fe8064fc3f83c8c85495ec8bfc4b2afa51734c4010bf6
         <button class=\"btn\">Register</button>
     {{ form_end(registrationForm) }}
 {% endblock %}
-", "registration/register.html.twig", "C:\\wamp64\\www\\SymfonyGameStore1\\templates\\registration\\register.html.twig");
+", "registration/register.html.twig", "C:\\wamp64\\www\\SymfonyGameStoreProjectFinalV\\templates\\registration\\register.html.twig");
     }
 }

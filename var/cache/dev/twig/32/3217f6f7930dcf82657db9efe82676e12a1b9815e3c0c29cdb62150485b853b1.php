@@ -417,6 +417,6 @@ class __TwigTemplate_24b188480ee44f843cd8ec9d700bf6521b8da0c44b470608fe35e59bbe5
     });
 })();
 </script>
-", "@WebProfiler/Profiler/settings.html.twig", "C:\\wamp64\\www\\SymfonyGameStore1\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\settings.html.twig");
+", "@WebProfiler/Profiler/settings.html.twig", "C:\\wamp64\\www\\SymfonyGameStoreProjectFinalV\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\settings.html.twig");
     }
 }

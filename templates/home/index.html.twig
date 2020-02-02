@@ -13,10 +13,24 @@
         {% endblock %}
     {% endblock %}
     {% block body %}
-    {% for game in games %}
-    {{ game.title }}
-    {{ game.description }}
-    {{ game.releasedate|date('d-m-Y')}}
-    {{ game.editor.societyName }}
-    {% endfor %}
+        <h1>{% block pagetitle %}Welcome to Game Store{% endblock %}</h1>
+        {% if is_granted("ROLE_USER") %}
+            <div id="div-button-add"><a class="btn btn-success" href="{{ path('videogame_add') }}">Add a game</a></div>
+        {% endif %}
+        <table id="table-index videogame">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Release date</th>
+                <th>Editor</th>
+            </tr>
+            {% for game in games %}
+            <tr>
+                <td><a href="{{ path('videogame_see', {'id': game.id}) }}">{{ game.title }}</a></td>
+                <td>{{ game.description }}</td>
+                <td>{{ game.releasedate|date('d-m-Y')}}</td>
+                <td>{{ game.editor.societyName }}</td>
+            </tr>
+            {% endfor %}
+        </table>
     {% endblock %}

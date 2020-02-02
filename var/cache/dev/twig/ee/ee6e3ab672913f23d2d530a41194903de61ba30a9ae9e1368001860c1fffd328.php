@@ -171,6 +171,6 @@ class __TwigTemplate_afdc9e7250deb6d300186f6a3b1dd524aad91b0700c2a94fe30cd787b8c
         {%- endfor -%}
     </pre>
 {% endif %}
-", "@Doctrine/Collector/explain.html.twig", "C:\\wamp64\\www\\SymfonyGameStore1\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\explain.html.twig");
+", "@Doctrine/Collector/explain.html.twig", "C:\\wamp64\\www\\SymfonyGameStoreProjectFinalV\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\explain.html.twig");
     }
 }
