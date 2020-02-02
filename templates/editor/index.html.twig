@@ -21,13 +21,15 @@
             {% endif %}
         </tr>
         {% for editor in editors %}
-            <td>{{ editor.societyName }}</td>
-            <td>{{ editor.nationality }}</td>
+            <tr>
+                <td>{{ editor.societyName }}</td>
+                <td>{{ editor.nationality }}</td>
 
-            {% if is_granted("ROLE_ADMIN") %}
-                <td><a href="{{ path('editor_edit', {'id': editor.id}) }}">Edit</a></td>
-                <td><a href="{{ path('editor_delete', {'id': editor.id}) }}">Delete</a></td>
-            {% endif %}
+                {% if is_granted("ROLE_ADMIN") %}
+                    <td><a href="{{ path('editor_edit', {'id': editor.id}) }}">Edit</a></td>
+                    <td><a href="{{ path('editor_delete', {'id': editor.id}) }}">Delete</a></td>
+                {% endif %}
+            </tr>
         {% endfor %}
     </table>
     {# <a href="{{ path('editor') }}">List</a> #}

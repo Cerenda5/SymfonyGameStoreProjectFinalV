@@ -4,22 +4,33 @@
 
 {% block body %}
     <h1>{% block pagetitle %}Users list{% endblock %}</h1>
-    {% for user in users %}
-        {{ user.email }}
-        {# {{ user.roles }} #}
-        {% if is_granted("ROLE_ADMIN") %}
-            {{ user.password }}
-        {% endif %}
-        {{ user.firstname }}
-        {{ user.lastname }}
-        {{ user.birthdate|date('Y-m-d') }}
-        {{ user.creationdate|date('Y-m-d') }}
+    <table id="table-index" {% if is_granted("ROLE_ADMIN") %} class="user admin" {% else %} class="user" {% endif %}>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Birthdate</th>
+            <th>Creation date</th>
+            {% if is_granted("ROLE_ADMIN") %}
+                <th>Password</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            {% endif %}
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.firstname }} {{ user.lastname }}</td>
+                <td>{{ user.email }}</td>
+                {# {{ user.roles }} #}
+                <td>{{ user.birthdate|date('Y-m-d') }}</td>
+                <td>{{ user.creationdate|date('Y-m-d') }}</td>
 
-        {% if is_granted("ROLE_ADMIN") %}
-            <a href="{{ path('user_edit', {'id': user.id}) }}">Edit</a>
-            <a href="{{ path('user_delete', {'id': user.id}) }}">Delete</a>
-        {% endif %}
-    <br>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <td>{{ user.password }}</td>
+                    <td><a href="{{ path('user_edit', {'id': user.id}) }}">Edit</a></td>
+                    <td><a href="{{ path('user_delete', {'id': user.id}) }}">Delete</a></td>
+                {% endif %}
+            </tr>
+    </table>
     {% endfor %}
     {# <a href="{{ path('user') }}">List</a> #}
 {% endblock %}

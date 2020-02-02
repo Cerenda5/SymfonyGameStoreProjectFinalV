@@ -122,6 +122,7 @@ form[name*="form"] > div {
 /*=============== FIN VIDEOGAME ===============*/
 
 /*=============== EDITOR ===============*/
+/********** INDEX **********/
 #table-index.editor th,
 #table-index.editor td {
     width: 50%;
@@ -131,4 +132,19 @@ form[name*="form"] > div {
 #table-index.editor.admin td {
     width: 25%;
 }
+/********** FIN INDEX **********/
 /*=============== FIN EDITOR ===============*/
+
+/*=============== USER ===============*/
+/********** INDEX **********/
+#table-index.user th,
+#table-index.user td {
+    width: 25%;
+}
+
+#table-index.user.admin th,
+#table-index.user.admin td {
+    width: calc(100% / 7);
+}
+/********** FIN INDEX **********/
+/*=============== FIN USER ===============*/
