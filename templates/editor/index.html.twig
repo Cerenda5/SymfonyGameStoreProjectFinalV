@@ -11,7 +11,7 @@
     {% if is_granted("ROLE_USER") %}
         <div id="div-button-add"><a class="btn btn-success" href="{{ path('editor_add') }}">Add an editor</a></div>
     {% endif %}
-    <table id="table-index editor">
+    <table id="table-index" class="editor">
         <tr>
             <th>Societyn Name</th>
             <th>Nationality</th>

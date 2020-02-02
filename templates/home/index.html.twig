@@ -17,7 +17,7 @@
         {% if is_granted("ROLE_USER") %}
             <div id="div-button-add"><a class="btn btn-success" href="{{ path('videogame_add') }}">Add a game</a></div>
         {% endif %}
-        <table id="table-index videogame">
+        <table id="table-index" class="videogame">
             <tr>
                 <th>Name</th>
                 <th>Description</th>
