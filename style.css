@@ -124,6 +124,11 @@ form[name*="form"] > div {
 /*=============== EDITOR ===============*/
 #table-index.editor th,
 #table-index.editor td {
-    width:50%;
+    width: 50%;
+}
+
+#table-index.editor.admin th,
+#table-index.editor.admin td {
+    width: 50%;
 }
 /*=============== FIN EDITOR ===============*/
