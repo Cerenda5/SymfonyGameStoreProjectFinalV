@@ -1,1 +1,1 @@
-# SymfonyGameStore1
+# OUR SYMFONY GAME STORE PROJECT
