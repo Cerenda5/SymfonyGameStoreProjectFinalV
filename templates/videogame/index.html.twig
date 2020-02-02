@@ -13,6 +13,7 @@
             <th>Description</th>
             <th>Release date</th>
             <th>Editor</th>
+            <th>Support</th>
         </tr>
         {% for videogame in videogames %}
         <tr>
@@ -20,6 +21,7 @@
             <td>{{ videogame.description }}</td>
             <td>{{ videogame.releasedate|date('d-m-Y')}}</td>
             <td>{{ videogame.editor.societyName }}</td>
+            <td>{{ videogame.support }}</td>
         </tr>
         {% endfor %}
     </table>
