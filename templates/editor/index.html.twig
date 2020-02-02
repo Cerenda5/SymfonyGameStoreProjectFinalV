@@ -15,6 +15,10 @@
         <tr>
             <th>Societyn Name</th>
             <th>Nationality</th>
+            {% if is_granted("ROLE_ADMIN") %}
+                <th>Edit</th>
+                <th>Delete</th>
+            {% endif %}
         </tr>
         {% for editor in editors %}
             <td>{{ editor.societyName }}</td>
