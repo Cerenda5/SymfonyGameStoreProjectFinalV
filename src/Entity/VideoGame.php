@@ -75,7 +75,7 @@ class VideoGame
         return $this->releasedate;
     }
 
-    public function setReleasedate(\DateTimeInterface $releasedate): self
+    public function setReleasedate(?\DateTimeInterface $releasedate): self
     {
         $this->releasedate = $releasedate;
 
