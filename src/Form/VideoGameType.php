@@ -23,6 +23,7 @@ class VideoGameType extends AbstractType
                 'class' => Editor::class,
                 'choice_label' => 'societyname',
             ])
+            ->add('support')
             ->add('submit', SubmitType::class)
         ;
     }
