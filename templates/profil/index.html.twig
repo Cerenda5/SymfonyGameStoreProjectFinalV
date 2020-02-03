@@ -3,9 +3,26 @@
 {% block title %}Users{% endblock %}
 
 {% block body %}
-    {{ user.firstname }} 
+<h1>{% block pagetitle %}My Profil{% endblock %}</h1>
+<table id="table-index" {% if is_granted("ROLE_ADMIN") %} class="user admin" {% else %} class="user" {% endif %}>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Birthdate</th>
+            <th>Creation date</th>
+        </tr>
+          {# {% for user in users %} #}
+            <tr>
+                <td>{{ user.firstname }} {{ user.lastname }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.birthdate|date('Y-m-d') }}</td>
+                <td>{{ user.creationdate|date('Y-m-d') }}</td>
+            </tr>
+        {# {% endfor %} #}
+    {# {{ user.firstname }} 
     {{ user.lastname }}
     {{ user.email }}
     {{ user.birthdate|date('Y-m-d') }}
-    {{ user.creationdate|date('Y-m-d') }}
+    {{ user.creationdate|date('Y-m-d') }} #}
+    </table>
 {% endblock %}
