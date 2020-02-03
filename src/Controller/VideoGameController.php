@@ -39,6 +39,7 @@ class VideoGameController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $manager->persist($videogame);
             $manager->flush();
+            $this->addFlash('info', "Video Game created");
         }
 
         return $this->render('videogame/form.html.twig', [
@@ -70,6 +71,7 @@ class VideoGameController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $manager->persist($videogame);
             $manager->flush();
+            $this->addFlash('info', "Video Game edited");
         }
 
         return $this->render('videogame/form.html.twig', [
@@ -85,6 +87,7 @@ class VideoGameController extends AbstractController
     {
         $manager->remove($videogame);
         $manager->flush();
+        $this->addFlash('info', "Video Game deleted");
 
         return $this->redirectToRoute('videogame');
     }

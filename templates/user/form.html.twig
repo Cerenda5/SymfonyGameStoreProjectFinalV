@@ -4,5 +4,12 @@
 
 {% block body %}
     <h1>{% block pagetitle %}User form{% endblock %}</h1>
-    {{form(form)}}
+    {{form_start(form)}}
+        {{form_row(form.email)}}
+        {{form_row(form.firstname)}}
+        {{form_row(form.lastname)}}
+        {{form_row(form.birthdate)}}
+        {{form_row(form.submit)}}        
+        {{form_rest(form)}}
+    {{form_end(form, {'render_rest': false})}}
 {% endblock %}

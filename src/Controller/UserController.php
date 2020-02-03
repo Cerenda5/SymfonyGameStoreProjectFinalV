@@ -40,6 +40,8 @@ class UserController extends AbstractController
             $user->setRoles(ROLE_USER);
             $manager->persist($user);
             $manager->flush();
+            $this->addFlash('info', "User created");
+
         }
 
         return $this->render('user/form.html.twig', [
@@ -56,9 +58,11 @@ class UserController extends AbstractController
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
             $manager->persist($user);
             $manager->flush();
+            $this->addFlash('info', "User edited");
         }
 
         return $this->render('user/form.html.twig', [
@@ -74,6 +78,7 @@ class UserController extends AbstractController
     {
         $manager->remove($user);
         $manager->flush();
+        $this->addFlash('info', "User deleted");
 
         return $this->redirectToRoute('user');
     }

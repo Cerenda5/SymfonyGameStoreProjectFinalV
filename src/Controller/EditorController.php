@@ -39,6 +39,7 @@ class EditorController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $manager->persist($editor);
             $manager->flush();
+            $this->addFlash('info', "Editor created");
         }
 
         return $this->render('editor/form.html.twig', [
@@ -58,6 +59,7 @@ class EditorController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $manager->persist($editor);
             $manager->flush();
+            $this->addFlash('info', "Editor edited");
         }
 
         return $this->render('editor/form.html.twig', [
@@ -73,6 +75,7 @@ class EditorController extends AbstractController
     {
         $manager->remove($editor);
         $manager->flush();
+        $this->addFlash('info', "Editor deleted");
 
         return $this->redirectToRoute('editor');
     }
