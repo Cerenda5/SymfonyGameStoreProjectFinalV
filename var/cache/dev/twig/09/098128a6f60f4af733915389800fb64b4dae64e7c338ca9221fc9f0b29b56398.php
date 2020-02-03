@@ -121,41 +121,65 @@ class __TwigTemplate_17476dc5c5fa2d6431b62c7f7284ad4cdf986777fbe374175370e556127
     ";
         }
         // line 14
-        echo "    ";
+        echo "    <table id=\"table-index\" ";
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
+            echo " class=\"editor admin\" ";
+        } else {
+            echo " class=\"editor\" ";
+        }
+        echo ">
+        <tr>
+            <th>Societyn Name</th>
+            <th>Nationality</th>
+            ";
+        // line 18
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
+            // line 19
+            echo "                <th>Edit</th>
+                <th>Delete</th>
+            ";
+        }
+        // line 22
+        echo "        </tr>
+        ";
+        // line 23
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["editors"]) || array_key_exists("editors", $context) ? $context["editors"] : (function () { throw new RuntimeError('Variable "editors" does not exist.', 14, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["editors"]) || array_key_exists("editors", $context) ? $context["editors"] : (function () { throw new RuntimeError('Variable "editors" does not exist.', 23, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["editor"]) {
-            // line 15
-            echo "        ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["editor"], "societyName", [], "any", false, false, false, 15), "html", null, true);
-            echo "
-        ";
-            // line 16
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["editor"], "nationality", [], "any", false, false, false, 16), "html", null, true);
-            echo "
+            // line 24
+            echo "            <tr>
+                <td>";
+            // line 25
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["editor"], "societyName", [], "any", false, false, false, 25), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 26
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["editor"], "nationality", [], "any", false, false, false, 26), "html", null, true);
+            echo "</td>
 
-        ";
-            // line 18
+                ";
+            // line 28
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                // line 19
-                echo "            <a href=\"";
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("editor_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["editor"], "id", [], "any", false, false, false, 19)]), "html", null, true);
-                echo "\">Edit</a>
-            <a href=\"";
-                // line 20
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("editor_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["editor"], "id", [], "any", false, false, false, 20)]), "html", null, true);
-                echo "\">Delete</a>
-        ";
+                // line 29
+                echo "                    <td><a href=\"";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("editor_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["editor"], "id", [], "any", false, false, false, 29)]), "html", null, true);
+                echo "\">Edit</a></td>
+                    <td><a href=\"";
+                // line 30
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("editor_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["editor"], "id", [], "any", false, false, false, 30)]), "html", null, true);
+                echo "\">Delete</a></td>
+                ";
             }
-            // line 22
-            echo "    <br>
-    ";
+            // line 32
+            echo "            </tr>
+        ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['editor'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 24
-        echo "    ";
+        // line 34
+        echo "    </table>
+    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -195,7 +219,7 @@ class __TwigTemplate_17476dc5c5fa2d6431b62c7f7284ad4cdf986777fbe374175370e556127
 
     public function getDebugInfo()
     {
-        return array (  168 => 10,  158 => 24,  151 => 22,  146 => 20,  141 => 19,  139 => 18,  134 => 16,  129 => 15,  124 => 14,  118 => 12,  116 => 11,  111 => 10,  101 => 9,  90 => 6,  80 => 5,  61 => 3,  38 => 1,);
+        return array (  192 => 10,  181 => 34,  174 => 32,  169 => 30,  164 => 29,  162 => 28,  157 => 26,  153 => 25,  150 => 24,  146 => 23,  143 => 22,  138 => 19,  136 => 18,  124 => 14,  118 => 12,  116 => 11,  111 => 10,  101 => 9,  90 => 6,  80 => 5,  61 => 3,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -213,16 +237,27 @@ class __TwigTemplate_17476dc5c5fa2d6431b62c7f7284ad4cdf986777fbe374175370e556127
     {% if is_granted(\"ROLE_USER\") %}
         <div id=\"div-button-add\"><a class=\"btn btn-success\" href=\"{{ path('editor_add') }}\">Add an editor</a></div>
     {% endif %}
-    {% for editor in editors %}
-        {{ editor.societyName }}
-        {{ editor.nationality }}
+    <table id=\"table-index\" {% if is_granted(\"ROLE_ADMIN\") %} class=\"editor admin\" {% else %} class=\"editor\" {% endif %}>
+        <tr>
+            <th>Societyn Name</th>
+            <th>Nationality</th>
+            {% if is_granted(\"ROLE_ADMIN\") %}
+                <th>Edit</th>
+                <th>Delete</th>
+            {% endif %}
+        </tr>
+        {% for editor in editors %}
+            <tr>
+                <td>{{ editor.societyName }}</td>
+                <td>{{ editor.nationality }}</td>
 
-        {% if is_granted(\"ROLE_ADMIN\") %}
-            <a href=\"{{ path('editor_edit', {'id': editor.id}) }}\">Edit</a>
-            <a href=\"{{ path('editor_delete', {'id': editor.id}) }}\">Delete</a>
-        {% endif %}
-    <br>
-    {% endfor %}
+                {% if is_granted(\"ROLE_ADMIN\") %}
+                    <td><a href=\"{{ path('editor_edit', {'id': editor.id}) }}\">Edit</a></td>
+                    <td><a href=\"{{ path('editor_delete', {'id': editor.id}) }}\">Delete</a></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
     {# <a href=\"{{ path('editor') }}\">List</a> #}
 {% endblock %}
 ", "editor/index.html.twig", "C:\\wamp64\\www\\SymfonyGameStoreProjectFinalV\\templates\\editor\\index.html.twig");

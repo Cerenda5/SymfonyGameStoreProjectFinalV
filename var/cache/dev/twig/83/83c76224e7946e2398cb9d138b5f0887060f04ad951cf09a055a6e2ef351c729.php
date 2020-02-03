@@ -99,37 +99,42 @@ class __TwigTemplate_0fcbb8c1ef78d422f4c078418cf247cdd4f2db74e496e889ba97cf503df
     ";
         }
         // line 10
-        echo "    <table id=\"table-index\">
+        echo "    <table id=\"table-index\" class=\"videogame\">
         <tr>
             <th>Name</th>
             <th>Description</th>
             <th>Release date</th>
             <th>Editor</th>
+            <th>Support</th>
         </tr>
         ";
-        // line 17
+        // line 18
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["videogames"]) || array_key_exists("videogames", $context) ? $context["videogames"] : (function () { throw new RuntimeError('Variable "videogames" does not exist.', 17, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["videogames"]) || array_key_exists("videogames", $context) ? $context["videogames"] : (function () { throw new RuntimeError('Variable "videogames" does not exist.', 18, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["videogame"]) {
-            // line 18
+            // line 19
             echo "        <tr>
             <td><a href=\"";
-            // line 19
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_see", ["id" => twig_get_attribute($this->env, $this->source, $context["videogame"], "id", [], "any", false, false, false, 19)]), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "title", [], "any", false, false, false, 19), "html", null, true);
-            echo "</a></td>
-            <td>";
             // line 20
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "description", [], "any", false, false, false, 20), "html", null, true);
-            echo "</td>
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("videogame_see", ["id" => twig_get_attribute($this->env, $this->source, $context["videogame"], "id", [], "any", false, false, false, 20)]), "html", null, true);
+            echo "\"><b>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "title", [], "any", false, false, false, 20), "html", null, true);
+            echo "</b> (Détails)</a></td>
             <td>";
             // line 21
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "releasedate", [], "any", false, false, false, 21), "d-m-Y"), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "description", [], "any", false, false, false, 21), "html", null, true);
             echo "</td>
             <td>";
             // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["videogame"], "editor", [], "any", false, false, false, 22), "societyName", [], "any", false, false, false, 22), "html", null, true);
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "releasedate", [], "any", false, false, false, 22), "d-m-Y"), "html", null, true);
+            echo "</td>
+            <td>";
+            // line 23
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["videogame"], "editor", [], "any", false, false, false, 23), "societyName", [], "any", false, false, false, 23), "html", null, true);
+            echo "</td>
+            <td>";
+            // line 24
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["videogame"], "support", [], "any", false, false, false, 24), "html", null, true);
             echo "</td>
         </tr>
         ";
@@ -137,7 +142,7 @@ class __TwigTemplate_0fcbb8c1ef78d422f4c078418cf247cdd4f2db74e496e889ba97cf503df
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['videogame'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 25
+        // line 27
         echo "    </table>
 ";
         
@@ -179,7 +184,7 @@ class __TwigTemplate_0fcbb8c1ef78d422f4c078418cf247cdd4f2db74e496e889ba97cf503df
 
     public function getDebugInfo()
     {
-        return array (  152 => 6,  141 => 25,  132 => 22,  128 => 21,  124 => 20,  118 => 19,  115 => 18,  111 => 17,  102 => 10,  96 => 8,  94 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  157 => 6,  146 => 27,  137 => 24,  133 => 23,  129 => 22,  125 => 21,  119 => 20,  116 => 19,  112 => 18,  102 => 10,  96 => 8,  94 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -193,19 +198,21 @@ class __TwigTemplate_0fcbb8c1ef78d422f4c078418cf247cdd4f2db74e496e889ba97cf503df
     {% if is_granted(\"ROLE_USER\") %}
         <div id=\"div-button-add\"><a class=\"btn btn-success\" href=\"{{ path('videogame_add') }}\">Add a game</a></div>
     {% endif %}
-    <table id=\"table-index\">
+    <table id=\"table-index\" class=\"videogame\">
         <tr>
             <th>Name</th>
             <th>Description</th>
             <th>Release date</th>
             <th>Editor</th>
+            <th>Support</th>
         </tr>
         {% for videogame in videogames %}
         <tr>
-            <td><a href=\"{{ path('videogame_see', {'id': videogame.id}) }}\">{{ videogame.title }}</a></td>
+            <td><a href=\"{{ path('videogame_see', {'id': videogame.id}) }}\"><b>{{ videogame.title }}</b> (Détails)</a></td>
             <td>{{ videogame.description }}</td>
             <td>{{ videogame.releasedate|date('d-m-Y')}}</td>
             <td>{{ videogame.editor.societyName }}</td>
+            <td>{{ videogame.support }}</td>
         </tr>
         {% endfor %}
     </table>

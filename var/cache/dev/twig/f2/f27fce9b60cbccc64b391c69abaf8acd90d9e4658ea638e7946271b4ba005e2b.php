@@ -89,64 +89,84 @@ class __TwigTemplate_0236561cb189aa2dc262bc6a896ec572f9055c621f9ae4ec81a682b341c
         echo "    <h1>";
         $this->displayBlock('pagetitle', $context, $blocks);
         echo "</h1>
-    ";
+    <table id=\"table-index\" ";
         // line 7
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new RuntimeError('Variable "users" does not exist.', 7, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
-            // line 8
-            echo "        ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "email", [], "any", false, false, false, 8), "html", null, true);
-            echo "
-        ";
-            // line 10
-            echo "        ";
-            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                // line 11
-                echo "            ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "password", [], "any", false, false, false, 11), "html", null, true);
-                echo "
-        ";
-            }
-            // line 13
-            echo "        ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "firstname", [], "any", false, false, false, 13), "html", null, true);
-            echo "
-        ";
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
+            echo " class=\"user admin\" ";
+        } else {
+            echo " class=\"user\" ";
+        }
+        echo ">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Birthdate</th>
+            <th>Creation date</th>
+            ";
+        // line 13
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
             // line 14
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "lastname", [], "any", false, false, false, 14), "html", null, true);
-            echo "
+            echo "                <th>Password</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            ";
+        }
+        // line 18
+        echo "        </tr>
         ";
-            // line 15
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "birthdate", [], "any", false, false, false, 15), "Y-m-d"), "html", null, true);
-            echo "
-        ";
-            // line 16
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "creationdate", [], "any", false, false, false, 16), "Y-m-d"), "html", null, true);
-            echo "
-
-        ";
-            // line 18
-            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                // line 19
-                echo "            <a href=\"";
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 19)]), "html", null, true);
-                echo "\">Edit</a>
-            <a href=\"";
-                // line 20
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 20)]), "html", null, true);
-                echo "\">Delete</a>
-        ";
-            }
+        // line 19
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new RuntimeError('Variable "users" does not exist.', 19, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
+            // line 20
+            echo "            <tr>
+                <td>";
+            // line 21
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "firstname", [], "any", false, false, false, 21), "html", null, true);
+            echo " ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "lastname", [], "any", false, false, false, 21), "html", null, true);
+            echo "</td>
+                <td>";
             // line 22
-            echo "    <br>
-    ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "email", [], "any", false, false, false, 22), "html", null, true);
+            echo "</td>
+                ";
+            // line 24
+            echo "                <td>";
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "birthdate", [], "any", false, false, false, 24), "Y-m-d"), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 25
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "creationdate", [], "any", false, false, false, 25), "Y-m-d"), "html", null, true);
+            echo "</td>
+
+                ";
+            // line 27
+            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
+                // line 28
+                echo "                    <td>";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "password", [], "any", false, false, false, 28), "html", null, true);
+                echo "</td>
+                    <td><a href=\"";
+                // line 29
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 29)]), "html", null, true);
+                echo "\">Edit</a></td>
+                    <td><a href=\"";
+                // line 30
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 30)]), "html", null, true);
+                echo "\">Delete</a></td>
+                ";
+            }
+            // line 32
+            echo "            </tr>
+        ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 24
-        echo "    ";
+        // line 34
+        echo "    </table>
+    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -186,7 +206,7 @@ class __TwigTemplate_0236561cb189aa2dc262bc6a896ec572f9055c621f9ae4ec81a682b341c
 
     public function getDebugInfo()
     {
-        return array (  159 => 6,  149 => 24,  142 => 22,  137 => 20,  132 => 19,  130 => 18,  125 => 16,  121 => 15,  117 => 14,  112 => 13,  106 => 11,  103 => 10,  98 => 8,  94 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  179 => 6,  168 => 34,  161 => 32,  156 => 30,  152 => 29,  147 => 28,  145 => 27,  140 => 25,  135 => 24,  131 => 22,  125 => 21,  122 => 20,  118 => 19,  115 => 18,  109 => 14,  107 => 13,  94 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -197,23 +217,34 @@ class __TwigTemplate_0236561cb189aa2dc262bc6a896ec572f9055c621f9ae4ec81a682b341c
 
 {% block body %}
     <h1>{% block pagetitle %}Users list{% endblock %}</h1>
-    {% for user in users %}
-        {{ user.email }}
-        {# {{ user.roles }} #}
-        {% if is_granted(\"ROLE_ADMIN\") %}
-            {{ user.password }}
-        {% endif %}
-        {{ user.firstname }}
-        {{ user.lastname }}
-        {{ user.birthdate|date('Y-m-d') }}
-        {{ user.creationdate|date('Y-m-d') }}
+    <table id=\"table-index\" {% if is_granted(\"ROLE_ADMIN\") %} class=\"user admin\" {% else %} class=\"user\" {% endif %}>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Birthdate</th>
+            <th>Creation date</th>
+            {% if is_granted(\"ROLE_ADMIN\") %}
+                <th>Password</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            {% endif %}
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.firstname }} {{ user.lastname }}</td>
+                <td>{{ user.email }}</td>
+                {# {{ user.roles }} #}
+                <td>{{ user.birthdate|date('Y-m-d') }}</td>
+                <td>{{ user.creationdate|date('Y-m-d') }}</td>
 
-        {% if is_granted(\"ROLE_ADMIN\") %}
-            <a href=\"{{ path('user_edit', {'id': user.id}) }}\">Edit</a>
-            <a href=\"{{ path('user_delete', {'id': user.id}) }}\">Delete</a>
-        {% endif %}
-    <br>
-    {% endfor %}
+                {% if is_granted(\"ROLE_ADMIN\") %}
+                    <td>{{ user.password }}</td>
+                    <td><a href=\"{{ path('user_edit', {'id': user.id}) }}\">Edit</a></td>
+                    <td><a href=\"{{ path('user_delete', {'id': user.id}) }}\">Delete</a></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
     {# <a href=\"{{ path('user') }}\">List</a> #}
 {% endblock %}
 ", "user/index.html.twig", "C:\\wamp64\\www\\SymfonyGameStoreProjectFinalV\\templates\\user\\index.html.twig");

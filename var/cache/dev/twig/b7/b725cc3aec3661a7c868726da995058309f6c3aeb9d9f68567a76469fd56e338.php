@@ -67,7 +67,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
         <nav class=\"navbar navbar-inverse\">
             <div class=\"container-fluid\">
                 <div class=\"navbar-header\">
-                <a class=\"navbar-brand\" href=\"/SymfonyGameStoreProjectFinalV/\">Game Store</a>
+                <a class=\"navbar-brand\" href=\"/SymfonyGameStoreProjectFinalV/public/\">Game Store</a>
                 </div>
                 <ul class=\"nav navbar-nav\">
                 ";
@@ -259,7 +259,7 @@ class __TwigTemplate_a2d6757c76463cbed94b3ee811f6d2e30f009056634b308a28ebf90414b
         <nav class=\"navbar navbar-inverse\">
             <div class=\"container-fluid\">
                 <div class=\"navbar-header\">
-                <a class=\"navbar-brand\" href=\"/SymfonyGameStoreProjectFinalV/\">Game Store</a>
+                <a class=\"navbar-brand\" href=\"/SymfonyGameStoreProjectFinalV/public/\">Game Store</a>
                 </div>
                 <ul class=\"nav navbar-nav\">
                 {# <li class=\"active\"><a href=\"#\">Home</a></li> #}
