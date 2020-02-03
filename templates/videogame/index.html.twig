@@ -17,7 +17,7 @@
         </tr>
         {% for videogame in videogames %}
         <tr>
-            <td><a href="{{ path('videogame_see', {'id': videogame.id}) }}">{{ videogame.title }}</a></td>
+            <td><a href="{{ path('videogame_see', {'id': videogame.id}) }}"><b>{{ videogame.title }}</b> (Détails)</a></td>
             <td>{{ videogame.description }}</td>
             <td>{{ videogame.releasedate|date('d-m-Y')}}</td>
             <td>{{ videogame.editor.societyName }}</td>

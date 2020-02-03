@@ -30,7 +30,7 @@
                     <td><a href="{{ path('user_delete', {'id': user.id}) }}">Delete</a></td>
                 {% endif %}
             </tr>
+        {% endfor %}
     </table>
-    {% endfor %}
     {# <a href="{{ path('user') }}">List</a> #}
 {% endblock %}

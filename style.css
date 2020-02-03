@@ -71,7 +71,7 @@ form[name*="form"] > div {
 /********** INDEX **********/
 #table-index.videogame th:nth-child(1),
 #table-index.videogame td:nth-child(1) {
-    width:25%;
+    width: 20%;
 }
 #table-index.videogame th:nth-child(2),
 #table-index.videogame td:nth-child(2) {
@@ -83,7 +83,11 @@ form[name*="form"] > div {
 }
 #table-index.videogame th:nth-child(4),
 #table-index.videogame td:nth-child(4) {
-    width: 20%;
+    width: 15%;
+}
+#table-index.videogame th:nth-child(5),
+#table-index.videogame td:nth-child(5) {
+    width: 10%;
 }
 /********** FIN INDEX **********/
 

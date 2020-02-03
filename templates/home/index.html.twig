@@ -23,13 +23,15 @@
                 <th>Description</th>
                 <th>Release date</th>
                 <th>Editor</th>
+                <th>Support</th>
             </tr>
             {% for game in games %}
             <tr>
-                <td><a href="{{ path('videogame_see', {'id': game.id}) }}">{{ game.title }}</a></td>
+                <td><a href="{{ path('videogame_see', {'id': game.id}) }}"><b>{{ game.title }}</b> (Détails)</a></td>
                 <td>{{ game.description }}</td>
                 <td>{{ game.releasedate|date('d-m-Y')}}</td>
                 <td>{{ game.editor.societyName }}</td>
+                <td>{{ game.support }}</td>
             </tr>
             {% endfor %}
         </table>
