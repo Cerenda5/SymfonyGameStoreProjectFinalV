@@ -16,7 +16,6 @@
             <th>Birthdate</th>
             <th>Creation date</th>
             {% if is_granted("ROLE_ADMIN") %}
-                {# <th>Password</th> #}
                 <th>Edit</th>
                 <th>Delete</th>
             {% endif %}
@@ -25,12 +24,10 @@
             <tr>
                 <td>{{ user.firstname }} {{ user.lastname }}</td>
                 <td>{{ user.email }}</td>
-                {# {{ user.roles }} #}
                 <td>{{ user.birthdate|date('Y-m-d') }}</td>
                 <td>{{ user.creationdate|date('Y-m-d') }}</td>
 
                 {% if is_granted("ROLE_ADMIN") %}
-                    {# <td>{{ user.password }}</td> #}
                     <td><a href="{{ path('user_edit', {'id': user.id}) }}">Edit</a></td>
                     <td><a href="{{ path('user_delete', {'id': user.id}) }}">Delete</a></td>
                 {% endif %}

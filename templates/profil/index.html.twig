@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+    {{ user.firstname }} 
+    {{ user.lastname }}
+    {{ user.email }}
+    {{ user.birthdate|date('Y-m-d') }}
+    {{ user.creationdate|date('Y-m-d') }}
+{% endblock %}
