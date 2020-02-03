@@ -5,13 +5,13 @@ h1 {
 }
 
 /********** FORM **********/
-form[name*="form"] {
+form[name*="form"], form[name="user"] {
     width: 25%;
     min-width: 400px;
     margin: auto;
 }
 
-form[name*="form"] > div {
+form[name*="form"] > div, form[name="user"] > div {
     display: -webkit-box;
     display: flex;
     -webkit-box-orient: vertical;
